@@ -1,0 +1,11 @@
+[
+    {
+        "url": "https://kodilan.com/ilanlar/sayfa/",
+        "footerSelector": "footer",
+        "count": 10,
+        "wrapperSelector": "#page > div.container.job-listing > div.eleven.columns > div > div.listings-container > div",
+        "itemSelector": [
+            "span.title.tag-post-link"
+        ]
+    }
+]
