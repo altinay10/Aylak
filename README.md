@@ -1,5 +1,5 @@
 # Aylak
-Web page scraper application that has javascript rendering feature
+Aylak is a web page scraper application that has javascript rendering feature
 
 # Dependencies
 Chromedp need **Google Chrome** so make sure it's installed.
