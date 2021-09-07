@@ -92,6 +92,7 @@ func Scrape(content chan<- Parser) {
 		}(page)
 	}
 	wg.Wait()
+	close(content)
 }
 
 func Parse(content <-chan Parser) {
@@ -101,18 +102,18 @@ func Parse(content <-chan Parser) {
 			log.Println("Could not create document, err: ", err)
 		}
 		for _, selector := range parser.ItemSelector {
+			f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+			if err != nil {
+				log.Println("err: ", err)
+			}
 			doc.Find(selector).Each(func(i int, item *goquery.Selection) {
-				f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-				if err != nil {
-					log.Println("err: ", err)
-				}
 				if _, err := f.WriteString(item.Text()); err != nil {
 					log.Println("err: ", err)
 				}
-				if err := f.Close(); err != nil {
-					log.Println("err: ", err)
-				}
 			})
+			if err := f.Close(); err != nil {
+				log.Println("err: ", err)
+			}
 		}
 	}
 }
