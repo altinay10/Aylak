@@ -2,11 +2,11 @@
 Aylak is a web page scraper application that has javascript rendering feature
 
 # Dependencies
-Chromedp need **Google Chrome** so make sure it's installed.
 ```
-$ go get -u github.com/chromedp/chromedp
+Chromedp need **Google Chrome** so make sure it's installed.
+github.com/chromedp/chromedp
 
-$ go get github.com/PuerkitoBio/goquery
+github.com/PuerkitoBio/goquery
 ```
 
 # JSON File
